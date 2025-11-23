@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Card = () => {
+const Card = (props) => {
   return (
     <div className='container' style={{ padding: 10, margin: 10  ,  border: "1px solid #ccc", borderRadius: "10px", maxWidth: "300px" }}>
       <div className='card-heading'>
-        <h2>Sunflower</h2>
+        <h2>{props.name}</h2>
       </div>
 
       <img

@@ -5,6 +5,8 @@
     "@mui/icons-material": "^7.3.5",
     "@mui/material": "^7.3.5",
     "@mui/styled-engine": "^7.3.5",
-    "mui": "^0.0.1"
+    "@tailwindcss/vite": "^4.1.17",
+    "mui": "^0.0.1",
+    "tailwindcss": "^4.1.17"
   }
 }
