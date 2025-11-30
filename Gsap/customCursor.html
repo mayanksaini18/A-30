@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #414141;
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+        #cursor{
+            background-color: orangered;
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+
+        }
+    </style>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    
+        <div id="cursor"></div>
+    
+
+    <script>
+      
+        var cursor = document.getElementById("cursor")
+
+        window.addEventListener("mousemove",(dets)=>{
+          gsap.to(cursor,{
+            x:dets.clientX,
+            y:dets.clientY,
+            duration :0.15,
+            ease:"power2.out"
+          });
+        })
+    </script>
+</body>
+</html>
