@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #string {
+            background-color:rgb(23, 22, 22);
+        }
+    </style>
+</head>
+<body>
+    <div id="string">
+
+        <svg width="1200" height="200"  viewBox="0 0 1000 360">
+            
+            
+            <!-- parabola: M = move to left bottom, Q = quadratic Bezier control point then end -->
+            <path d="M -580 100 Q 0 0 580 100"
+            fill="none"
+            stroke="white"
+            stroke-width="2"
+            />
+        </svg>
+    </div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+   var finalPath = "M -380 100 Q 0 0 380 100";
+   var path = finalPath;
+
+   const string = document.getElementById("string");
+   const svg = document.querySelector("svg");
+
+   string.addEventListener("mousemove", (e) => {
+     // get mouse coords relative to svg
+     const rect = svg.getBoundingClientRect();
+     const x = e.clientX - rect.left;
+     const y = e.clientY - rect.top;
+
+     // update curve
+     path = `M -380 100 Q ${x} ${y} 380 100`;
+     
+     gsap.to("svg path", {
+        attr: { d: path },
+        duration: 0.2,
+        ease: "power3.out"
+     });
+   });
+
+   string.addEventListener("mouseleave", () => {
+     gsap.to("svg path", {
+       attr: { d: finalPath },
+       duration: 1.2,
+       ease: "elastic.out(1, 0.3)"
+     });
+   });
+</script>
+
+</body>
+</html>
