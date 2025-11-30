@@ -26,7 +26,7 @@ gsap.from("h1",{
 const tl = gsap.timeline();
 
 tl.to(".box", { x: 200 , duration:1 , radius:"50%" , backgroundColor:"green" , scale:0.5 })
-  .to(".box", { y: 200 , backgroundColor:"blue" })
+  .to(".box", { y: 10 , backgroundColor:"blue" })
   .to(".box", { rotation: 360  , backgroundColor:"yellow" , scale:1});
 
 gsap.registerPlugin(ScrollTrigger);

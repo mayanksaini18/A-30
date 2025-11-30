@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GSAP ScrollTrigger Demo</title>
+
+  <!-- GSAP + ScrollTrigger CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #111;
+      color: #fff;
+    }
+
+    section {
+      height: 100vh;
+     
+    }
+    .page2{
+         display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .page3{
+         display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .box {
+      width: 150px;
+      height: 150px;
+      background: #ff4f4f;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <section style="background:#222;">
+         <p>stagger</p>
+        <h1>hello</h1>
+        <h1>i 'm mayank !</h1>
+        <h1>welcome to BUiltX</h1>
+  </section>
+  <script>
+    
+  </script>
+
+  <section class="page2" style="background:#333;">
+    <div class="box"></div>
+  </section>
+
+  <section class="page3" style="background:#444;">The End</section>
+
+  <script>
+
+    gsap.from("h1",{
+    opacity:0,
+    duration:1,
+    y:50,
+    delay:1,
+    stagger:0.7,
+})
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from(".box", {
+      y: 200,
+      opacity: 0,
+      duration: 1.2,
+      
+      scrollTrigger: {
+        trigger: ".box",
+        start: "",   // animation starts when .box reaches 80% of viewport
+        end: "top ",     // animation ends at 30%
+        scrub: true,        // smooth scroll-linked animation
+        markers: true       // SHOW visual markers (best for learning!)
+      }
+    });
+  </script>
+</body>
+</html>
