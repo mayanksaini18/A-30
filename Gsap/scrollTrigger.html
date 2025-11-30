@@ -10,6 +10,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
   <style>
+    
     body {
       margin: 0;
       font-family: sans-serif;
@@ -19,69 +20,63 @@
 
     section {
       height: 100vh;
-     
-    }
-    .page2{
-         display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .page3{
-         display: flex;
-      justify-content: center;
-      align-items: center;
     }
 
-    .box {
-      width: 150px;
-      height: 150px;
-      background: #ff4f4f;
-      border-radius: 12px;
+    /* HERO */
+    section .hero-text h1 {
+      margin: 0;
     }
+
+    .page2 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden; /* important */
+    }
+    .page2 h2 {
+      color: #111;
+      font-size: 20rem;
+      white-space: nowrap; /* so the text doesn't break lines */
+    }
+
   </style>
 </head>
 <body>
 
+  <!-- PAGE 1 -->
   <section style="background:#222;">
-         <p>stagger</p>
-        <h1>hello</h1>
-        <h1>i 'm mayank !</h1>
-        <h1>welcome to BUiltX</h1>
-  </section>
-  <script>
-    
-  </script>
-
-  <section class="page2" style="background:#333;">
-    <div class="box"></div>
+   
   </section>
 
-  <section class="page3" style="background:#444;">The End</section>
+ 
+  <!-- PAGE 2 -->
+  <section class="page2" style="background:#09cbe9;">
+    <h2>EXPERIENCE</h2>
+  </section>
+
+  <!-- PAGE 3 -->
+  <section class="page3" style="background:#444;">
+    <h1>The End</h1>
+  </section>
+
 
   <script>
+  
 
-    gsap.from("h1",{
-    opacity:0,
-    duration:1,
-    y:50,
-    delay:1,
-    stagger:0.7,
-})
-    gsap.registerPlugin(ScrollTrigger);
-
-    gsap.from(".box", {
-      y: 200,
-      opacity: 0,
-      duration: 1.2,
-      
+    /* ---------------- PAGE 2 PIN + MOVE ANIMATION ---------------- */
+    gsap.to(".page2 h2", {
+      x: "-50%", // moving text left
       scrollTrigger: {
-        trigger: ".box",
-        start: "",   // animation starts when .box reaches 80% of viewport
-        end: "top ",     // animation ends at 30%
-        scrub: true,        // smooth scroll-linked animation
-        markers: true       // SHOW visual markers (best for learning!)
+        trigger: ".page2",
+        scroller: "body",
+        start: "top top",
+        end: "bottom -200%",
+        scrub: 2,
+        pin: true,
+        markers: true
       }
     });
   </script>
+
 </body>
 </html>
