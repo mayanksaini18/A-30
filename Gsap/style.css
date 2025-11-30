@@ -1,0 +1,22 @@
+
+  
+      * {
+        margin: 0;
+       padding: 0;
+       box-sizing: border-box;
+      }
+    
+      body {
+       font-family: sans-serif;
+      }
+      .box {
+  width: 100px;
+  height: 100px;
+  background-color: aqua;
+  
+}
+.box1{ background: red;}
+.box2{ background: blueviolet;}
+.box3{ background: green;}
+
+    
